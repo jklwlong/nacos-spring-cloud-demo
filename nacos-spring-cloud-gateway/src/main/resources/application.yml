@@ -1,0 +1,25 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.23.239:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8722
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: CONSUMER
+          uri: lb://service-consumer
+          predicates:
+            - Method=GET,POST
+feign:
+  sentinel:
+    enabled: true
