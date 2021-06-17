@@ -16,6 +16,10 @@ spring:
         locator:
           enabled: true
       routes:
+        - id: PROVIDER
+          uri: lb://service-provider
+          predicates:
+            - Method=GET,POST
         - id: CONSUMER
           uri: lb://service-consumer
           predicates:
