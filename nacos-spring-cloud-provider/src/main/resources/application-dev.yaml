@@ -1,29 +1,25 @@
 server:
-  port: 8071
+  port: 8070
 spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.23.239:3306/s1?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai
+    username: root
+    password:
   application:
-    name: service-consumer
+    name: service-provider
   cloud:
     nacos:
-      discovery:
-        server-addr: 192.168.23.239:8848
+      server-addr: 192.168.23.239:8848
     sentinel:
       transport:
         dashboard: localhost:8080
-        port: 8719
+        port: 8720
     alibaba:
       seata:
         # 事务分组 config.txt中的service.vgroupMapping.xxx其中的xxx为此处值
         tx-service-group: default_tx_group
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://192.168.23.239:3306/upsuser?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai
-    username: root
-    password:
-#feign:
-#  sentinel:
-#    enabled: true
 seata:
   registry:
     type: nacos

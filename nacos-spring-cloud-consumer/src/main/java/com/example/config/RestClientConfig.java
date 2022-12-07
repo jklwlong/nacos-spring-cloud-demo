@@ -12,6 +12,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 使用restTemplate作为rpc调用时需要配置
+ * 使用Feign则不需要
+ */
 @Configuration
 public class RestClientConfig {
 

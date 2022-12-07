@@ -1,8 +1,14 @@
 spring:
-  application:
-    name: nacos-spring-cloud-provider
   cloud:
     nacos:
       config:
+        # 配置文件后缀
         file-extension: yaml
-      server-addr: 192.168.23.239:8848
+        # 配置文件分组
+        group: DEFAULT_GROUP
+        # 命名空间
+        namespace: dc7f02d1-b0ad-471e-b80e-e27a4a19afe8
+        # 配置中心地址
+        server-addr: 192.168.23.239:8848
+        # 配置文件名称 不需要后缀 加上后缀也能识别
+        prefix: ff
